@@ -2,6 +2,8 @@ set(sources
 	Algorithms.h
 	AnsiColorized.h
 	Assertions.h
+	BooleanLP.cpp
+	BooleanLP.h
 	Common.cpp
 	Common.h
 	CommonData.cpp
@@ -24,6 +26,8 @@ set(sources
 	Keccak256.h
 	LazyInit.h
 	LEB128.h
+	LP.cpp
+	LP.h
 	picosha2.h
 	Result.h
 	SetOnce.h
