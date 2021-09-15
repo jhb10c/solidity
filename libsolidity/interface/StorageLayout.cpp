@@ -64,7 +64,7 @@ Json StorageLayout::generate(VariableDeclaration const& _var, u256 const& _slot,
 
 void StorageLayout::generate(Type const* _type)
 {
-	if (m_types.find(typeKeyName(_type)) != m_types.end())
+	if (m_types.contains(typeKeyName(_type)))
 		return;
 
 	// Register it now to cut recursive visits.
@@ -109,7 +109,7 @@ void StorageLayout::generate(Type const* _type)
 		typeInfo["encoding"] = "inplace";
 	}
 
-	solAssert(typeInfo.find("encoding") != typeInfo.end(), "");
+	solAssert(typeInfo.contains("encoding"), "");
 }
 
 string StorageLayout::typeKeyName(Type const* _type)
