@@ -14,6 +14,7 @@ Compiler Features:
  * SMTChecker: Add constraints to better correlate ``address(this).balance`` and ``msg.value``.
  * SMTChecker: Support the ``value`` option for external function calls.
  * SMTChecker: Support constants via modules.
+ * SMTChecker: Output values for ``block.*``, ``msg.*`` and ``tx.*`` variables that are present in the called functions.
 
 
 Bugfixes:
