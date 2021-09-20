@@ -119,6 +119,12 @@ protected:
 	/// Creates a DebugData object with the correct source location set.
 	std::shared_ptr<DebugData const> createDebugData() const;
 
+	[[nodiscard]]
+	std::shared_ptr<DebugData const> updateLocationEndFrom(
+		std::shared_ptr<DebugData const> const& _debugData,
+		langutil::SourceLocation const& _location
+	) const;
+
 	/// Creates an inline assembly node with the current source location.
 	template <class T> T createWithLocation() const
 	{
