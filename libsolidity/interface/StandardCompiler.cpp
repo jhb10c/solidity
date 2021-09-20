@@ -83,7 +83,7 @@ Json formatFatalError(string const& _type, string const& _message)
 Json formatSourceLocation(SourceLocation const* location)
 {
 	if (!location || !location->sourceName)
-		return Json(nullptr);
+		return Json{};
 
 	Json sourceLocation{Json::object()};
 	sourceLocation["file"] = *location->sourceName;
@@ -95,7 +95,7 @@ Json formatSourceLocation(SourceLocation const* location)
 Json formatSecondarySourceLocation(SecondarySourceLocation const* _secondaryLocation)
 {
 	if (!_secondaryLocation)
-		return Json(nullptr);
+		return Json{};
 
 	Json secondarySourceLocation{Json::array()};
 	for (auto const& location: _secondaryLocation->infos)
@@ -1525,11 +1525,11 @@ Json StandardCompiler::formatFunctionDebugData(
 		if (info.sourceID)
 			fun["id"] = Json::number_unsigned_t(*info.sourceID);
 		else
-			fun["id"] = Json(nullptr);
+			fun["id"] = Json{};
 		if (info.bytecodeOffset)
 			fun["entryPoint"] = Json::number_unsigned_t(*info.bytecodeOffset);
 		else
-			fun["entryPoint"] = Json(nullptr);
+			fun["entryPoint"] = Json{};
 		fun["parameterSlots"] = Json::number_unsigned_t(info.params);
 		fun["returnSlots"] = Json::number_unsigned_t(info.returns);
 		ret[name] = move(fun);

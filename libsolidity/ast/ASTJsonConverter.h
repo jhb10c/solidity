@@ -145,11 +145,11 @@ private:
 	static std::string namePathToString(std::vector<ASTString> const& _namePath);
 	static Json idOrNull(ASTNode const* _pt)
 	{
-		return _pt ? Json(nodeId(*_pt)) : Json(nullptr);
+		return _pt ? Json(nodeId(*_pt)) : Json{};
 	}
 	Json toJsonOrNull(ASTNode const* _node)
 	{
-		return _node ? toJson(*_node) : Json(nullptr);
+		return _node ? toJson(*_node) : Json{};
 	}
 	Json inlineAssemblyIdentifierToJson(std::pair<yul::Identifier const* , InlineAssemblyAnnotation::ExternalIdentifierInfo> _info) const;
 	static std::string location(VariableDeclaration::Location _location);

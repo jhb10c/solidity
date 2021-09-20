@@ -87,7 +87,7 @@ Json AsmJsonConverter::operator()(Assignment const& _node) const
 	Json ret = createAstNode(locationOf(_node), "YulAssignment");
 	for (auto const& var: _node.variableNames)
 		ret["variableNames"].emplace_back((*this)(var));
-	ret["value"] = _node.value ? std::visit(*this, *_node.value) : Json(nullptr);
+	ret["value"] = _node.value ? std::visit(*this, *_node.value) : Json{};
 	return ret;
 }
 
@@ -111,7 +111,7 @@ Json AsmJsonConverter::operator()(VariableDeclaration const& _node) const
 	Json ret = createAstNode(locationOf(_node), "YulVariableDeclaration");
 	for (auto const& var: _node.variables)
 		ret["variables"].emplace_back((*this)(var));
-	ret["value"] = _node.value ? std::visit(*this, *_node.value) : Json(nullptr);
+	ret["value"] = _node.value ? std::visit(*this, *_node.value) : Json{};
 	return ret;
 }
 

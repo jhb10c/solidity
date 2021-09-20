@@ -227,7 +227,7 @@ Json Natspec::extractCustomDoc(multimap<string, DocTag> const& _tags)
 			concatenated[tag] += value.content;
 	// We do not want to create an object if there are no custom tags found.
 	if (concatenated.empty())
-		return Json(nullptr);
+		return Json{};
 	Json result{Json::object()};
 	for (auto& [tag, value]: concatenated)
 		result[tag] = move(value);

@@ -62,7 +62,7 @@ T AsmJsonImporter::createAsmNode(Json const& _node)
 Json AsmJsonImporter::member(Json const& _node, string const& _name)
 {
 	if (!_node.contains(_name))
-		return Json(nullptr);
+		return Json{};
 	return _node[_name];
 }
 
